@@ -1,0 +1,72 @@
+@import url(normalize.css);
+
+@font-face {
+    font-family: IranSans-Regular;
+    src: url(../font/IRANSansWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: IranSans-Light;
+    src: url(../font/IRANSansWeb-Light.ttf);
+}
+
+@font-face {
+    font-family: IranSans-Bold;
+    src: url(../font/IRANSansWeb-Bold.ttf);
+}
+
+:root {
+    --first-color: #2a2438;
+    --second-color: #5c5470;
+    --head-color: #FFF;
+    --container-color: #352f44;
+    --background-color: #dbd8e3;
+}
+
+html {
+    font-size: 65.5%;
+    direction: rtl;
+    background-color: var(--background-color);
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: IranSans-Bold;
+    text-align: center;
+    color: var(--head-color);
+}
+
+p {
+    font-size: 1.6rem;
+    font-family: IranSans-Light;
+    line-height: 1.5;
+    text-align: justify;
+    color: var(--first-color);
+}
+
+.search {
+    width: 25%;
+    height: 3.5rem;
+    border-radius: 3rem;
+    font-family: IranSans-Light;
+    font-size: 1.6rem;
+    padding: 1%;
+}
+
+.container {
+    background-color: var(--container-color);
+    margin: 1% 15%;
+    border-radius: 3rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 3%;
+}
+
+.he {
+    height: 50vh;
+}
