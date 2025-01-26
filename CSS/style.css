@@ -29,34 +29,100 @@ html {
     background-color: var(--background-color);
 }
 
-h1 {
+h1,
+h2 {
     font-size: 3rem;
     font-family: IranSans-Bold;
     text-align: center;
     color: var(--head-color);
 }
 
-p {
-    font-size: 1.6rem;
-    font-family: IranSans-Light;
-    line-height: 1.5;
-    text-align: justify;
-    color: var(--first-color);
+h2 {
+    font-size: 2rem;
+    text-align: right;
 }
 
-.search {
+p {
+    font-size: 1.6rem;
+    font-family: IranSans-Regular;
+    line-height: 1.5;
+    text-align: justify;
+    color: var(--head-color);
+    margin: 0;
+}
+
+.btn {
+    background: var(--second-color);
+    border-radius: 999rem;
+    box-shadow: var(--second-color) 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: var(--head-color);
+    cursor: pointer;
+    font-family: IranSans-Light;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 0.8rem 1.8rem;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+}
+
+.start__btn {
+    margin-right: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.del__btn {
+    font-size: 1.2rem;
+    font-family: IranSans-Light;
+    background-color: var(--first-color);
+    margin-left: 1rem;
+}
+
+.edt__btn {
+    font-size: 1.2rem;
+    font-family: IranSans-Light;
+    background-color: var(--first-color);
+}
+
+.input {
     width: 25%;
-    height: 3.5rem;
+    height: auto;
     border-radius: 3rem;
+    border: 0;
     font-family: IranSans-Light;
     font-size: 1.6rem;
     padding: 1%;
 }
 
+.task__input {
+    width: 70%;
+    margin-left: 1rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.task__alert {
+    display: none;
+}
+
+.task__alert-on {
+    display: block;
+    color: red;
+    font-family: IranSans-Light;
+    margin-top: 0.5rem;
+}
+
 .container {
     background-color: var(--container-color);
     margin: 1% 15%;
+    padding: 1% 3%;
     border-radius: 3rem;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 
 .header {
@@ -64,9 +130,30 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1% 3%;
 }
 
 .he {
     height: 50vh;
+}
+
+.item {
+    background-color: var(--container-color);
+    border-radius: 3rem;
+}
+
+.task__list {
+    list-style: none;
+    padding-right: 0;
+}
+.list__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.8rem;
+    margin-bottom: 2rem;
+    background: var(--second-color);
+    border-radius: 999rem;
+    box-shadow: var(--second-color) 0 10px 20px -10px;
+    box-sizing: border-box;
 }

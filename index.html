@@ -11,12 +11,21 @@
 <body>
     <header class="header container">
         <h1>کارهای روزانه من</h1>
-        <input type="search" class="search" name="" placeholder="جستوجو..."/>
+        <input type="search" class="input search__input" name="" placeholder="جستوجو..."/>
     </header>
 
     <section class="task">
         <div class="container he">
-            
+            <h2>یادداشت</h2>
+            <div class="item">
+                <input type="text" class="input task__input" name="" placeholder="یادداشت کنید..."/>
+                <button class="btn add__btn" role="button">افزودن</button>
+                <input type="date" class="btn start__btn" name="start" value="2025-01-26" min="2025-01-26"/>
+            </div>
+            <p class="task__alert">بیش از سه حرف وارد نمایید!</p>
+            <h2>فهرست</h2>
+            <ul class="task__list">
+            </ul>
         </div>
     </section>
 </body>
