@@ -59,7 +59,7 @@ p {
     color: var(--head-color);
     cursor: pointer;
     font-family: IranSans-Light;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 2.4rem;
     opacity: 1;
     outline: 0 solid transparent;
@@ -73,7 +73,6 @@ p {
 }
 
 .start__btn {
-    margin-right: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -90,6 +89,12 @@ p {
     background-color: var(--first-color);
 }
 
+@media screen and (max-width: 1660px) {
+    .btn {
+        font-size: 1.2rem;
+    }
+}
+
 .input {
     width: 25%;
     height: auto;
@@ -100,21 +105,16 @@ p {
     padding: 1%;
 }
 
-.task__input {
-    width: 70%;
-    margin-left: 1rem;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+@media screen and (max-width: 1500px) {
+    .input {
+        padding: 2%;
+    }
 }
 
-.task__alert {
-    display: none;
-}
-
-.task__alert-on {
-    display: block;
-    color: red;
-    font-family: IranSans-Light;
-    margin-top: 0.5rem;
+@media screen and (max-width: 768px) {
+    .input {
+        padding: 3%;
+    }
 }
 
 .container {
@@ -130,15 +130,14 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.he {
-    height: 50vh;
+    height: 10vh;
 }
 
 .item {
     background-color: var(--container-color);
     border-radius: 3rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .task__list {
@@ -156,4 +155,33 @@ p {
     border-radius: 999rem;
     box-shadow: var(--second-color) 0 10px 20px -10px;
     box-sizing: border-box;
+
+}
+
+.task__input {
+    width: 75%;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.task__alert {
+    display: none;
+}
+
+.task__alert-on {
+    display: block;
+    color: red;
+    font-family: IranSans-Light;
+    margin: 0.7rem 0;
+}
+
+@media screen and (max-width: 1500px) {
+    .task__input {
+        width: 100%;
+        margin-bottom: 1.2rem;
+        margin-left: 0;
+    }
+
+    .item {
+        flex-wrap: wrap;
+    }
 }
