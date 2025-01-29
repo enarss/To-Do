@@ -185,3 +185,7 @@ p {
         flex-wrap: wrap;
     }
 }
+
+.hidden {
+    display: none;
+}
