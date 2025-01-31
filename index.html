@@ -6,7 +6,11 @@
     <title>To-Do</title>
     <link rel="stylesheet" href="./CSS/normalize.css">
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./node_modules/persian-datepicker/dist/css/persian-datepicker.css">
     <script type="module" src="./JS/script.js" defer></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/persian-date/dist/persian-date.js"></script>
+    <script src="./node_modules/persian-datepicker/dist/js/persian-datepicker.js"></script>
 </head>
 <body>
     <header class="header container">
@@ -20,9 +24,9 @@
             <div class="item">
                 <input type="text" class="input task__input" name="" placeholder="یادداشت کنید..."/>
                 <button class="btn add__btn" role="button">افزودن</button>
-                <input type="date" class="btn start__btn" name="start" min="2025-01-29"/>
+                <input type="text" class="btn start__btn example"/>
             </div>
-            <p class="task__alert">بیش از سه حرف وارد نمایید!</p>
+            <p class="task__alert hidden">بیش از سه حرف وارد نمایید!</p>
             <div class="title__div">
                 <h2>فهرست</h2>
                 <p class="start__date">مرتب سازی بر پایه</p>

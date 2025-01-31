@@ -10,6 +10,13 @@ let taskArr = [];
 let listArr = [];
 let completedListArr = [];
 
+$(document).ready(function() {
+    $(".example").pDatepicker({
+        format: "DD MMMM YYYY",
+        autoClose: true
+    });
+});
+
 function CreatTask(title, check, date, editButtonId) {
     this.title = title;
     this.check = check;
@@ -52,6 +59,7 @@ function addTask() {
 
     const startDate = document.createElement("p");
     startDate.innerText = startDateButton.value;
+    if(startDateButton.value === "") startDate.innerText = "امروز";
     startDate.classList = "start__date";
     titleDiv.appendChild(startDate);
 
@@ -70,7 +78,15 @@ function addTask() {
     editButton.innerText = "ویرایش";
     buttonDiv.appendChild(editButton);
     editButton.addEventListener("click", () => {
-        taskInput.value = title.value;
+        title.toggleAttribute('contenteditable');
+        if(title.hasAttribute('contenteditable')){
+            editButton.innerText = "نهادن";
+            title.classList.add("edit__task");
+        }
+        else {
+            editButton.innerText = "ویرایش";
+            title.classList.remove("edit__task");
+        }
     });
 
     let newTask = new CreatTask(taskInput.value, false, 0, editButtonId);
@@ -82,25 +98,22 @@ function addTask() {
 
 addButton.addEventListener("click", () => {
     if (taskInput.value.length < 3)
-        taskAlert.classList = "task__alert-on";
+        taskAlert.classList.remove("hidden");
     else {
-        taskAlert.classList = "task__alert";
+        taskAlert.classList.add("hidden");
         addTask();
         taskInput.value = "";
-        startDateButton.value = "";
     }
 });
 
 taskInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         if (taskInput.value.length < 3)
-            taskAlert.classList = "task__alert-on";
+            taskAlert.classList.remove("hidden");
         else {
-            taskAlert.classList = "task__alert";
+            taskAlert.classList.add("hidden");
             addTask();
             taskInput.value = "";
-            startDateButton.value = "";
-            //console.log(listArr[0].element);
         }
     }
 });
