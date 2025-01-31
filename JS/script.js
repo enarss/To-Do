@@ -6,9 +6,9 @@ const completedList = document.querySelector(".completed__list");
 const taskAlert = document.querySelector(".task__alert");
 const continer = document.querySelector(".task");
 const searchBox = document.querySelector(".search__input");
-let taskArr = [];
+const sortByDate = document.querySelector(".sort__date__btn");
+const sortByName = document.querySelector(".sort__name__btn");
 let listArr = [];
-let completedListArr = [];
 
 $(document).ready(function() {
     $(".example").pDatepicker({
@@ -16,13 +16,6 @@ $(document).ready(function() {
         autoClose: true
     });
 });
-
-function CreatTask(title, check, date, editButtonId) {
-    this.title = title;
-    this.check = check;
-    this.date = date;
-    this.editButtonId = editButtonId;
-}
 
 function addTask() {
     const task = document.createElement("li");
@@ -55,6 +48,7 @@ function addTask() {
 
     const title = document.createElement("p");
     title.innerText = taskInput.value;
+    title.classList = "task__title";
     titleDiv.appendChild(title);
 
     const startDate = document.createElement("p");
@@ -73,8 +67,6 @@ function addTask() {
 
     const editButton = document.createElement("button");
     editButton.classList = "btn edt__btn";
-    const editButtonId = Math.random();
-    editButton.id = editButtonId;
     editButton.innerText = "ویرایش";
     buttonDiv.appendChild(editButton);
     editButton.addEventListener("click", () => {
@@ -88,9 +80,6 @@ function addTask() {
             title.classList.remove("edit__task");
         }
     });
-
-    let newTask = new CreatTask(taskInput.value, false, 0, editButtonId);
-    taskArr.push(newTask);
     listArr.push({ element: task });
 }
 
@@ -124,8 +113,36 @@ searchBox.addEventListener("input", (e) => {
     const searchText = e.target.value;
     console.log(searchBox);
     listArr.forEach((item) => {
-        const itemText = item.element.innerText.replace("پاک کن", "").replace("ویرایش", "");
+        //const itemText = item.element.innerText.replace("پاک کن", "").replace("ویرایش", "");
+        const itemText = item.element.querySelector(".task__title").innerText;
+        console.log(itemText);
         if (itemText.includes(searchText)) item.element.classList.remove("hidden");
         else item.element.classList.add("hidden");
+    });
+});
+
+//sort
+
+sortByDate.addEventListener("click", () => {
+    taskList.innerHTML = "";
+    listArr.sort((a, b) => {
+        const aDate = a.element.querySelector(".start__date").innerText;
+        const bDate = b.element.querySelector(".start__date").innerText;
+        return (new persianDate([aDate]) - new persianDate([bDate]));
+    });
+    listArr.forEach(item => {
+        taskList.appendChild(item.element);
+    });
+});
+
+sortByName.addEventListener("click", () => {
+    taskList.innerHTML = "";
+    listArr.sort((a, b) => {
+        const aText = a.element.querySelector(".task__title").innerText;
+        const bText = b.element.querySelector(".task__title").innerText;
+        return aText.localeCompare(bText);
+    });
+    listArr.forEach(item => {
+        taskList.appendChild(item.element);
     });
 });
